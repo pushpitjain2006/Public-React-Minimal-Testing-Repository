@@ -1,28 +1,31 @@
-import React, { useState } from "react";
-import Page2 from "./Page2.js";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./Home";
+import Page2 from "./Page2";
+import Page3 from "./Page3";
+import "./app.css";
+
 
 function App() {
-  const [showPage2, setShowPage2] = useState(false);
   return (
-    <div className="App">
-      <header>
-        <p>YOOOO THIS DEPLOYMENT WORKS.</p>
-        <button
-          onClick={() => {
-            alert("You clicked me!");
-          }}
-        >
-          Click me
-        </button>
-        <p>Click the button to see an alert.</p>
+    <Router>
+      <div className="App">
+        <header>
+          <nav>
+            <Link to="/">Home</Link> | <Link to="/page2">Page 2</Link> |{" "}
+            <Link to="/page3">Page 3</Link>
+          </nav>
+        </header>
 
-        <button onClick={() => setShowPage2(!showPage2)}>
-          {showPage2 ? "Hide" : "Show"} Page 2
-        </button>
-
-        {showPage2 && <Page2 />}
-      </header>
-    </div>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/page2" element={<Page2 />} />
+            <Route path="/page3" element={<Page3 />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 
