@@ -5,7 +5,7 @@ const Page2 = () => {
     <div>
       Page 2
       <embed
-        src="/New Website Project Dec 2024 (6).pdf"
+        src="/Pushpit_jain_Resume.pdf"
         width="600"
         height="500"
         type="application/pdf"
